@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ToolHub is a premium free online tool hub for image compression, PDF conversion, QR codes, passwords, JSON formatting, text utilities, and more.">
+  <title>ToolHub - Premium Free Online Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="ToolHub home">
+        <span class="brand-mark">T</span>
+        <span>
+          <strong>ToolHub</strong>
+          <small>Free utility suite</small>
+        </span>
+      </a>
+
+      <nav class="side-nav" aria-label="Tool categories">
+        <a href="#featured" class="active">Featured</a>
+        <a href="#image-compressor">Image</a>
+        <a href="#pdf-converter">Documents</a>
+        <a href="#json-formatter">Developer</a>
+        <a href="#password-generator">Security</a>
+        <a href="#word-counter">Text</a>
+        <a href="#emi-calculator">Calculators</a>
+      </nav>
+
+      <div class="sidebar-panel">
+        <span class="status-dot"></span>
+        <p>Private by design. Most tools run inside your browser without uploading files.</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">World-class free tools</p>
+          <h1>All your daily utilities in one polished workspace.</h1>
+        </div>
+        <nav class="top-links" aria-label="Site pages">
+          <a href="about.html">About</a>
+          <a href="blog.html">Blog</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="disclaimer.html">Disclaimer</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </header>
+
+      <section class="hero-grid" id="featured">
+        <div class="hero-copy">
+          <div class="trust-row" aria-label="Platform benefits">
+            <span>Fast</span>
+            <span>Responsive</span>
+            <span>No signup</span>
+          </div>
+          <h2>Compress, convert, generate, format, and ship small tasks faster.</h2>
+          <p>ToolHub brings practical browser-based utilities into a clean dashboard built for speed, privacy, and repeat use.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#tool-grid">Explore tools</a>
+            <a class="button ghost" href="#image-compressor">Start with images</a>
+          </div>
+        </div>
+        <div class="metrics-panel" aria-label="Platform summary">
+          <div>
+            <strong>30+</strong>
+            <span>ready tools</span>
+          </div>
+          <div>
+            <strong>0</strong>
+            <span>forced logins</span>
+          </div>
+          <div>
+            <strong>Local</strong>
+            <span>file processing</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="toolbar" aria-label="Tool search and filters">
+        <div class="search-wrap">
+          <span aria-hidden="true">/</span>
+          <input id="toolSearch" type="search" placeholder="Search tools, converters, generators..." autocomplete="off">
+        </div>
+        <div class="filter-chips" id="categoryFilters" aria-label="Filter tools"></div>
+      </section>
+
+      <section class="tool-catalog" id="tool-grid" aria-label="Available tools"></section>
+
+      <section class="workspace-section">
+        <div class="section-heading">
+          <p class="eyebrow">Interactive workspace</p>
+          <h2>Use the tools</h2>
+        </div>
+
+        <div class="tool-workspace">
+          <article class="tool-panel wide" id="image-compressor" data-tool-panel="image-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Image</p>
+                <h3>Image Compressor</h3>
+              </div>
+              <span class="tool-badge">JPG / PNG / WEBP</span>
+            </div>
+            <label class="drop-zone" id="imageDrop">
+              <input type="file" id="imageInput" accept="image/*" multiple>
+              <span class="drop-icon">UP</span>
+              <strong>Drop images or choose files</strong>
+              <small>Adjust quality and download optimized JPG files instantly.</small>
+            </label>
+            <div class="control-row">
+              <label for="qualityRange">Quality <strong id="qualityValue">72%</strong></label>
+              <input type="range" id="qualityRange" min="35" max="95" value="72">
+            </div>
+            <div class="progress-track" aria-label="Compression progress">
+              <span id="imageProgress"></span>
+            </div>
+            <div class="result-grid" id="imageResults"></div>
+          </article>
+
+          <article class="tool-panel wide" id="image-editor" data-tool-panel="image-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Image</p>
+                <h3>Resizer, Cropper, Format Converter</h3>
+              </div>
+              <span class="tool-badge">Canvas editor</span>
+            </div>
+            <label class="drop-zone compact" id="editorDrop">
+              <input type="file" id="editorImage" accept="image/*">
+              <span class="drop-icon">IMG</span>
+              <strong>Choose one image</strong>
+              <small>Resize, crop, convert to JPG, PNG, or WEBP, and preview before download.</small>
+            </label>
+            <div class="form-grid">
+              <label>Width <input id="resizeWidth" type="number" min="1" placeholder="Auto"></label>
+              <label>Height <input id="resizeHeight" type="number" min="1" placeholder="Auto"></label>
+              <label>Crop X <input id="cropX" type="number" min="0" value="0"></label>
+              <label>Crop Y <input id="cropY" type="number" min="0" value="0"></label>
+              <label>Crop W <input id="cropW" type="number" min="1" placeholder="Full"></label>
+              <label>Crop H <input id="cropH" type="number" min="1" placeholder="Full"></label>
+              <label>Format
+                <select id="imageFormat">
+                  <option value="image/jpeg">JPG</option>
+                  <option value="image/png">PNG</option>
+                  <option value="image/webp">WEBP</option>
+                </select>
+              </label>
+              <label>Quality <input id="editorQuality" type="range" min="40" max="95" value="82"></label>
+            </div>
+            <div class="split-actions">
+              <button class="button primary" id="applyImageEditBtn">Apply changes</button>
+              <button class="button ghost" id="downloadEditedImageBtn">Download image</button>
+            </div>
+            <canvas id="editorCanvas" class="preview-canvas" width="1" height="1"></canvas>
+            <div class="status-line" id="editorStatus">Upload an image to begin.</div>
+          </article>
+
+          <article class="tool-panel" id="background-remover" data-tool-panel="image-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Image</p>
+                <h3>Basic Background Remover</h3>
+              </div>
+              <span class="tool-badge">Solid colors</span>
+            </div>
+            <label class="drop-zone compact">
+              <input type="file" id="bgImage" accept="image/*">
+              <span class="drop-icon">BG</span>
+              <strong>Add image</strong>
+              <small>Removes simple white or selected solid backgrounds locally.</small>
+            </label>
+            <div class="color-row">
+              <input id="bgColor" type="color" value="#ffffff" aria-label="Background color">
+              <input id="bgTolerance" type="number" min="0" max="160" value="38" aria-label="Tolerance">
+            </div>
+            <button class="button primary full" id="removeBgBtn">Remove background</button>
+            <canvas id="bgCanvas" class="preview-canvas" width="1" height="1"></canvas>
+            <div class="status-line" id="bgStatus">Works best on logos, products, and flat backgrounds.</div>
+          </article>
+
+          <article class="tool-panel" id="image-watermark" data-tool-panel="image-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Image</p>
+                <h3>Add Watermark</h3>
+              </div>
+              <span class="tool-badge">Text overlay</span>
+            </div>
+            <label class="drop-zone compact">
+              <input type="file" id="watermarkImage" accept="image/*">
+              <span class="drop-icon">WM</span>
+              <strong>Select image</strong>
+              <small>Add a branded text watermark and download the result.</small>
+            </label>
+            <input id="watermarkText" type="text" placeholder="Watermark text" value="ToolHub">
+            <div class="split-actions">
+              <button class="button primary" id="applyWatermarkBtn">Apply watermark</button>
+              <button class="button ghost" id="downloadWatermarkBtn">Download</button>
+            </div>
+            <canvas id="watermarkCanvas" class="preview-canvas" width="1" height="1"></canvas>
+            <div class="status-line" id="watermarkStatus">Choose an image and text.</div>
+          </article>
+
+          <article class="tool-panel" id="pdf-converter" data-tool-panel="document-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Documents</p>
+                <h3>PDF Converter</h3>
+              </div>
+              <span class="tool-badge">Images to PDF</span>
+            </div>
+            <label class="drop-zone compact" id="pdfDrop">
+              <input type="file" id="pdfImages" accept="image/*" multiple>
+              <span class="drop-icon">+</span>
+              <strong>Add images</strong>
+              <small>Creates a downloadable PDF in your browser.</small>
+            </label>
+            <button class="button primary full" id="createPdfBtn">Create PDF</button>
+            <div class="status-line" id="pdfStatus">No images selected.</div>
+          </article>
+
+          <article class="tool-panel wide" id="pdf-suite" data-tool-panel="document-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Documents</p>
+                <h3>PDF Tools Suite</h3>
+              </div>
+              <span class="tool-badge">Merge / Split / Compress</span>
+            </div>
+            <label class="drop-zone compact">
+              <input type="file" id="pdfFiles" accept="application/pdf" multiple>
+              <span class="drop-icon">PDF</span>
+              <strong>Add PDF files</strong>
+              <small>Merge PDFs, split selected page ranges, or rebuild a lighter copy when supported.</small>
+            </label>
+            <div class="form-grid">
+              <label>Split range <input id="pdfRange" type="text" placeholder="1-3,5"></label>
+              <label>Watermark text <input id="pdfWatermarkText" type="text" placeholder="Optional watermark"></label>
+            </div>
+            <div class="split-actions">
+              <button class="button primary" id="mergePdfBtn">Merge PDFs</button>
+              <button class="button ghost" id="splitPdfBtn">Split PDF</button>
+              <button class="button ghost" id="compressPdfBtn">Compress PDF</button>
+              <button class="button ghost" id="watermarkPdfBtn">Add watermark</button>
+            </div>
+            <div class="status-line" id="pdfSuiteStatus">PDF tools load only when you use them, keeping the page fast.</div>
+          </article>
+
+          <article class="tool-panel" id="doc-converter" data-tool-panel="document-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Documents</p>
+                <h3>Word / PDF Converter</h3>
+              </div>
+              <span class="tool-badge">Browser safe</span>
+            </div>
+            <label class="drop-zone compact">
+              <input type="file" id="docFile" accept=".txt,.pdf,text/plain,application/pdf">
+              <span class="drop-icon">DOC</span>
+              <strong>Add TXT or PDF</strong>
+              <small>Extract text from plain text files or PDFs, then export to PDF or Word-compatible DOC.</small>
+            </label>
+            <textarea id="docText" rows="8" placeholder="Paste document text, then create a printable PDF or Word-compatible file."></textarea>
+            <div class="split-actions">
+              <button class="button ghost" id="extractDocTextBtn">Extract text</button>
+              <button class="button primary" id="textToPdfBtn">Text to PDF</button>
+              <button class="button ghost" id="textToWordBtn">Text to Word</button>
+            </div>
+            <div class="status-line" id="docStatus">For private browser-only use, paste text from Word or PDF and export clean files.</div>
+          </article>
+
+          <article class="tool-panel" id="qr-generator" data-tool-panel="developer-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Generator</p>
+                <h3>QR Code Generator</h3>
+              </div>
+              <span class="tool-badge">Instant preview</span>
+            </div>
+            <input id="qrText" type="text" placeholder="Paste a URL or text">
+            <div class="qr-preview">
+              <img id="qrPreview" alt="Generated QR code preview">
+            </div>
+            <div class="split-actions">
+              <button class="button primary" id="generateQrBtn">Generate</button>
+              <a class="button ghost" id="downloadQrBtn" download="toolhub-qr.png">Download</a>
+            </div>
+            <div class="status-line" id="qrStatus">Ready when you are.</div>
+          </article>
+
+          <article class="tool-panel" id="password-generator" data-tool-panel="security-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Security</p>
+                <h3>Password Generator</h3>
+              </div>
+              <span class="tool-badge">Crypto-safe</span>
+            </div>
+            <div class="control-row">
+              <label for="passwordLength">Length <strong id="passwordLengthValue">18</strong></label>
+              <input id="passwordLength" type="range" min="8" max="64" value="18">
+            </div>
+            <div class="option-grid">
+              <label><input type="checkbox" id="useUpper" checked> Uppercase</label>
+              <label><input type="checkbox" id="useNumbers" checked> Numbers</label>
+              <label><input type="checkbox" id="useSymbols" checked> Symbols</label>
+            </div>
+            <div class="output-row">
+              <input id="passwordOutput" readonly value="">
+              <button class="icon-button" id="copyPasswordBtn" title="Copy password">Copy</button>
+            </div>
+            <button class="button primary full" id="generatePasswordBtn">Generate password</button>
+            <div class="strength-meter"><span id="strengthBar"></span></div>
+            <div class="status-line" id="passwordStatus">Choose settings and generate.</div>
+          </article>
+
+          <article class="tool-panel" id="password-checker" data-tool-panel="security-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Security</p>
+                <h3>Strong Password Checker</h3>
+              </div>
+              <span class="tool-badge">Local analysis</span>
+            </div>
+            <input id="passwordCheckInput" type="password" placeholder="Type a password to test">
+            <div class="strength-meter"><span id="checkStrengthBar"></span></div>
+            <div class="status-line strong" id="passwordCheckOutput">No password entered.</div>
+          </article>
+
+          <article class="tool-panel" id="hash-generator" data-tool-panel="security-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Security</p>
+                <h3>Hash Generator</h3>
+              </div>
+              <span class="tool-badge">SHA hashes</span>
+            </div>
+            <textarea id="hashInput" rows="5" placeholder="Enter text to hash"></textarea>
+            <div class="split-actions">
+              <button class="button primary" id="sha256Btn">SHA-256</button>
+              <button class="button ghost" id="sha384Btn">SHA-384</button>
+              <button class="button ghost" id="sha512Btn">SHA-512</button>
+            </div>
+            <pre class="code-output" id="hashOutput">Hash output appears here.</pre>
+          </article>
+
+          <article class="tool-panel wide" id="json-formatter" data-tool-panel="developer-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Developer</p>
+                <h3>JSON Formatter</h3>
+              </div>
+              <span class="tool-badge">Validate / Beautify</span>
+            </div>
+            <textarea id="jsonInput" rows="8" placeholder='Paste JSON, for example {"name":"ToolHub"}'></textarea>
+            <div class="split-actions">
+              <button class="button primary" id="formatJsonBtn">Format</button>
+              <button class="button ghost" id="minifyJsonBtn">Minify</button>
+              <button class="button ghost" id="copyJsonBtn">Copy</button>
+            </div>
+            <pre class="code-output" id="jsonOutput">Formatted JSON appears here.</pre>
+            <div class="status-line" id="jsonStatus">Paste JSON to validate and format.</div>
+          </article>
+
+          <article class="tool-panel" id="word-counter" data-tool-panel="text-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Text</p>
+                <h3>Word Counter</h3>
+              </div>
+              <span class="tool-badge">Live stats</span>
+            </div>
+            <textarea id="wordInput" rows="8" placeholder="Paste or write text..."></textarea>
+            <div class="stat-grid">
+              <div><strong id="wordCount">0</strong><span>Words</span></div>
+              <div><strong id="charCount">0</strong><span>Characters</span></div>
+              <div><strong id="readTime">0m</strong><span>Read time</span></div>
+            </div>
+          </article>
+
+          <article class="tool-panel" id="case-converter" data-tool-panel="text-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Text</p>
+                <h3>Case Converter</h3>
+              </div>
+              <span class="tool-badge">Upper / lower / title</span>
+            </div>
+            <textarea id="caseInput" rows="6" placeholder="Enter text to convert"></textarea>
+            <div class="split-actions">
+              <button class="button primary" data-case="upper">UPPER</button>
+              <button class="button ghost" data-case="lower">lower</button>
+              <button class="button ghost" data-case="title">Title</button>
+              <button class="button ghost" data-case="sentence">Sentence</button>
+            </div>
+            <textarea id="caseOutput" rows="5" readonly placeholder="Converted text appears here"></textarea>
+          </article>
+
+          <article class="tool-panel" id="text-formatter" data-tool-panel="text-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Text</p>
+                <h3>Text Formatter</h3>
+              </div>
+              <span class="tool-badge">Clean copy</span>
+            </div>
+            <textarea id="formatTextInput" rows="6" placeholder="Paste messy text"></textarea>
+            <div class="split-actions">
+              <button class="button primary" id="cleanTextBtn">Clean spacing</button>
+              <button class="button ghost" id="removeLinesBtn">Remove blank lines</button>
+              <button class="button ghost" id="sortLinesBtn">Sort lines</button>
+            </div>
+            <textarea id="formatTextOutput" rows="5" readonly placeholder="Formatted text appears here"></textarea>
+          </article>
+
+          <article class="tool-panel" id="plagiarism-checker" data-tool-panel="text-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Text</p>
+                <h3>Basic Plagiarism Checker</h3>
+              </div>
+              <span class="tool-badge">Compare texts</span>
+            </div>
+            <textarea id="plagiarismA" rows="5" placeholder="Original or source text"></textarea>
+            <textarea id="plagiarismB" rows="5" placeholder="Text to compare"></textarea>
+            <button class="button primary full" id="checkSimilarityBtn">Check similarity</button>
+            <div class="status-line strong" id="plagiarismOutput">Similarity score appears here.</div>
+          </article>
+
+          <article class="tool-panel" id="base64-tool" data-tool-panel="developer-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Developer</p>
+                <h3>Base64 Encoder</h3>
+              </div>
+              <span class="tool-badge">Encode / Decode</span>
+            </div>
+            <textarea id="base64Input" rows="6" placeholder="Enter text to encode or Base64 to decode"></textarea>
+            <div class="split-actions">
+              <button class="button primary" id="encodeBase64Btn">Encode</button>
+              <button class="button ghost" id="decodeBase64Btn">Decode</button>
+            </div>
+            <textarea id="base64Output" rows="5" readonly placeholder="Output appears here"></textarea>
+          </article>
+
+          <article class="tool-panel" id="url-tool" data-tool-panel="developer-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Web</p>
+                <h3>URL Encoder</h3>
+              </div>
+              <span class="tool-badge">Safe strings</span>
+            </div>
+            <input id="urlInput" type="text" placeholder="Enter URL or string">
+            <div class="split-actions">
+              <button class="button primary" id="encodeUrlBtn">Encode</button>
+              <button class="button ghost" id="decodeUrlBtn">Decode</button>
+            </div>
+            <textarea id="urlOutput" rows="4" readonly placeholder="Output appears here"></textarea>
+          </article>
+
+          <article class="tool-panel wide" id="code-minifier" data-tool-panel="developer-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Developer</p>
+                <h3>Code Minifier</h3>
+              </div>
+              <span class="tool-badge">HTML / CSS / JS</span>
+            </div>
+            <label>Code type
+              <select id="minifyType">
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="js">JavaScript</option>
+              </select>
+            </label>
+            <textarea id="minifyInput" rows="8" placeholder="Paste code to minify"></textarea>
+            <button class="button primary" id="minifyCodeBtn">Minify code</button>
+            <pre class="code-output" id="minifyOutput">Minified code appears here.</pre>
+          </article>
+
+          <article class="tool-panel" id="color-tool" data-tool-panel="developer-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Design</p>
+                <h3>Color Converter</h3>
+              </div>
+              <span class="tool-badge">HEX / RGB</span>
+            </div>
+            <div class="color-row">
+              <input id="colorPicker" type="color" value="#2563eb" aria-label="Pick color">
+              <input id="hexInput" type="text" value="#2563eb" aria-label="Hex color">
+            </div>
+            <div class="stat-grid">
+              <div><strong id="rgbValue">37, 99, 235</strong><span>RGB</span></div>
+              <div><strong id="hslValue">224, 84%, 53%</strong><span>HSL</span></div>
+            </div>
+          </article>
+
+          <article class="tool-panel" id="timestamp-tool" data-tool-panel="developer-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Data</p>
+                <h3>Timestamp Converter</h3>
+              </div>
+              <span class="tool-badge">Unix / Date</span>
+            </div>
+            <input id="timestampInput" type="number" placeholder="Unix timestamp">
+            <div class="split-actions">
+              <button class="button primary" id="timestampNowBtn">Use now</button>
+              <button class="button ghost" id="convertTimestampBtn">Convert</button>
+            </div>
+            <div class="status-line strong" id="timestampOutput">Enter a timestamp to convert.</div>
+          </article>
+
+          <article class="tool-panel" id="emi-calculator" data-tool-panel="calculator-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Calculator</p>
+                <h3>EMI Calculator</h3>
+              </div>
+              <span class="tool-badge">Loan planning</span>
+            </div>
+            <div class="form-grid single">
+              <label>Loan amount <input id="emiPrincipal" type="number" min="0" placeholder="500000"></label>
+              <label>Interest rate % <input id="emiRate" type="number" min="0" step="0.01" placeholder="8.5"></label>
+              <label>Tenure months <input id="emiMonths" type="number" min="1" placeholder="60"></label>
+            </div>
+            <button class="button primary full" id="calculateEmiBtn">Calculate EMI</button>
+            <div class="status-line strong" id="emiOutput">Monthly EMI appears here.</div>
+          </article>
+
+          <article class="tool-panel" id="age-calculator" data-tool-panel="calculator-tools">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Calculator</p>
+                <h3>Age Calculator</h3>
+              </div>
+              <span class="tool-badge">Years / months / days</span>
+            </div>
+            <input id="birthDate" type="date" aria-label="Birth date">
+            <button class="button primary full" id="calculateAgeBtn">Calculate age</button>
+            <div class="status-line strong" id="ageOutput">Select your date of birth.</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-guides">
+        <div class="section-heading">
+          <p class="eyebrow">Usage guides</p>
+          <h2>Original help content for real users</h2>
+        </div>
+        <div class="guide-grid">
+          <article>
+            <h3>Image tools</h3>
+            <p>Compress photos before uploading to websites, resize images for social media, crop unwanted edges, convert formats, remove simple backgrounds, and add watermarks for brand protection.</p>
+          </article>
+          <article>
+            <h3>PDF and document tools</h3>
+            <p>Merge multiple PDFs, split useful page ranges, add a simple watermark, create PDFs from images or text, and generate Word-compatible files for quick document sharing.</p>
+          </article>
+          <article>
+            <h3>Writing and developer tools</h3>
+            <p>Clean text, convert case, check similarity between two passages, format JSON, encode URLs, create Base64 strings, generate hashes, and minify code for faster pages.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="monetization">
+        <div>
+          <p class="eyebrow">Built to scale</p>
+          <h2>Free today, ready for ads and premium upgrades tomorrow.</h2>
+          <p>The layout includes clear space for sponsorships, upgrade prompts, and new categories without interrupting the tool workflow.</p>
+        </div>
+        <div class="ad-slot" aria-label="Advertisement placeholder">
+          <span>Ad placement</span>
+          <small>Reserved responsive unit</small>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <p>&copy; 2026 ToolHub. Fast, free, and privacy-aware online utilities.</p>
+        <div>
+          <a href="about.html">About</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="disclaimer.html">Disclaimer</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
